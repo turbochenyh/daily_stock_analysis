@@ -81,7 +81,17 @@ jobs:
           # Anthropic / Claude
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || secrets.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022' }}
-
+          
+          # === 实时行情关闭开关 ===
+          # 将此项设为 'false'，程序将跳过实时接口，直接使用历史收盘价分析
+          ENABLE_REALTIME_QUOTE: 'false'
+          
+          # 建议同步关闭实时技术指标计算，确保分析逻辑一致
+          ENABLE_REALTIME_TECHNICAL_INDICATORS: 'false'
+          
+          # 建议同时关闭筹码分布（该接口在云端极不稳定）
+          ENABLE_CHIP_DISTRIBUTION: 'false'
+          
           # ==========================================
           # 数据源
           # ==========================================
